@@ -20,6 +20,29 @@ export const Contact = () => {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setButtonText("Sending...");
+    let response = await fetch("http://localhost:4000/contact", {
+      method: "POST",
+      header: {
+        "Content-type": "Application/json/json;charset=utf-8",
+      },
+      body: JSON.stringify(formDetails),
+    });
+    setButtonText("Send");
+    let result = response.json();
+    setFormDetails(formInitialDetails);
+    if (result.code === 200) {
+      setFormDetails({ sucess: true, message: "Message sent successfully" });
+    } else {
+      setStatus({
+        success: false,
+        message: "Something went wrong, please try again later.",
+      });
+    }
+  };
+
   return (
     <section className="contact" id="contact">
       <Container>
@@ -29,7 +52,7 @@ export const Contact = () => {
           </Col>
           <Col md={6}>
             <h2>Get In Touch</h2>
-            <form action="">
+            <form action="0" onSubmit={handleSubmit}>
               <Row>
                 <Col sm={6} className="px-1">
                   <input
