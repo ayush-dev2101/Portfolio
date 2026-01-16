@@ -67,17 +67,42 @@ export const NavBar = () => {
             </Nav.Link>
           </Nav>
           <span className="navbar-text">
-            <div className="social-icon">
-              <button className="social-btn">
-                <img src={navIcon1} alt="GitHub" />
-              </button>
-              <button className="social-btn">
-                <img src={navIcon2} alt="GitHub" />
-              </button>
-              <button className="social-btn">
-                <img src={navIcon3} alt="GitHub" />
-              </button>
+            <div className="social-icon mb-2">
+              <a
+                href="https://www.linkedin.com/in/ayush-kumar-singh-308b70296"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={navIcon1}
+                  alt="LinkedIn"
+                  style={{ width: "30px", height: "30px" }}
+                />
+              </a>
+              <a
+                href="https://github.com/ayush-dev2101"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={navIcon2}
+                  alt="GitHub"
+                  style={{ width: "30px", height: "30px" }}
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/max_ayushhh/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={navIcon3}
+                  alt="Instagram"
+                  style={{ width: "30px", height: "30px" }}
+                />
+              </a>
             </div>
+
             <button
               onClick={() => {
                 document
