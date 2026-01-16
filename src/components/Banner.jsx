@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
@@ -6,9 +6,9 @@ import headerImg from "../assets/img/header-img.svg";
 import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
+  const toRotate = useMemo(() => ["Full Stack Web Developer"], []);
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const toRotate = ["Full Stack Web Developer"];
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const period = 2000;
