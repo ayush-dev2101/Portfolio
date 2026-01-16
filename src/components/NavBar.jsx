@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { ArrowRightCircle } from "react-bootstrap-icons";
 import logo from "../assets/img/logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/linkedIn.svg";
@@ -77,8 +78,14 @@ export const NavBar = () => {
                 <img src={navIcon3} alt="" />
               </a>
             </div>
-            <button className="vvd" onClick={() => console.log("connect")}>
-              <span>Let's Connect</span>
+            <button
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Let's Connect <ArrowRightCircle size={25} />
             </button>
           </span>
         </Navbar.Collapse>

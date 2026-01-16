@@ -23,18 +23,18 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:4000/contact", {
+    let response = await fetch("http://localhost:3000/contact", {
       method: "POST",
-      header: {
-        "Content-type": "Application/json/json;charset=utf-8",
+      headers: {
+        "Content-type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(formDetails),
     });
     setButtonText("Send");
-    let result = response.json();
+    let result = await response.json();
     setFormDetails(formInitialDetails);
     if (result.code === 200) {
-      setFormDetails({ sucess: true, message: "Message sent successfully" });
+      setStatus({ success: true, message: "Message sent successfully" });
     } else {
       setStatus({
         success: false,
@@ -83,12 +83,12 @@ export const Contact = () => {
                     type="tel"
                     value={formDetails.phone}
                     placeholder="Phone No."
-                    onChange={(e) => onFormUpdate("Phone No.", e.target.value)}
+                    onChange={(e) => onFormUpdate("phone", e.target.value)}
                   />
                 </Col>
                 <Col>
                   <textarea
-                    row="6"
+                    rows="6"
                     value={formDetails.message}
                     placeholder="Message"
                     onChange={(e) => onFormUpdate("message", e.target.value)}

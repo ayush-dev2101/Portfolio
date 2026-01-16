@@ -69,9 +69,14 @@ export const Banner = () => {
                     corporis aliquid impedit excepturi odio laboriosam ipsam
                     Distinctio eaque numquam provident!
                   </p>
-                  <button onClick={() => console.log("connect")}>
-                    Let's Connect
-                    <ArrowRightCircle size={25} />
+                  <button
+                    onClick={() => {
+                      document
+                        .getElementById("contact")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Let's Connect <ArrowRightCircle size={25} />
                   </button>
                 </div>
               )}
