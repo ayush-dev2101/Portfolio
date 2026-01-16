@@ -32,13 +32,25 @@ export const Footer = () => {
           {/* Social Icons Section */}
           <Col xs={12} lg={3} className="text-center text-lg-end">
             <div className="social-icon mb-2">
-              <a href="#" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.linkedin.com/in/ayush-kumar-singh-308b70296"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={navIcon1} alt="LinkedIn" />
               </a>
-              <a href="#" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/ayush-dev2101"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={navIcon2} alt="GitHub" />
               </a>
-              <a href="#" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.instagram.com/max_ayushhh/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={navIcon3} alt="Twitter" />
               </a>
             </div>

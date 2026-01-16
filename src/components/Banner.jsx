@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
@@ -13,17 +13,8 @@ export const Banner = () => {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const period = 2000;
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [delta]);
-
-  const tick = () => {
+  // Wrap tick in useCallback to satisfy ESLint
+  const tick = useCallback(() => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting
@@ -31,9 +22,9 @@ export const Banner = () => {
       : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
-    if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
-    }
+
+    if (isDeleting) setDelta((prev) => prev / 2);
+
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
       setDelta(period);
@@ -42,7 +33,15 @@ export const Banner = () => {
       setLoopNum(loopNum + 1);
       setDelta(500);
     }
-  };
+  }, [loopNum, isDeleting, text, toRotate]);
+
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => clearInterval(ticker);
+  }, [tick, delta]);
 
   return (
     <section className="banner" id="home">
@@ -51,17 +50,11 @@ export const Banner = () => {
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) => (
-                <div
-                  className={
-                    "isVisible" ? "animated__animated animate_fadeIn" : ""
-                  }
-                >
+                <div className={isVisible ? "animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>
-                    {`Hi I'm Ayush!` +
-                      ` 
-              `}
-                    <span className="wrap">{text}</span>
+                    {`Hi I'm Ayush!`}
+                    <span className="wrap"> {text}</span>
                   </h1>
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -70,11 +63,11 @@ export const Banner = () => {
                     Distinctio eaque numquam provident!
                   </p>
                   <button
-                    onClick={() => {
+                    onClick={() =>
                       document
                         .getElementById("contact")
-                        ?.scrollIntoView({ behavior: "smooth" });
-                    }}
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                   >
                     Let's Connect <ArrowRightCircle size={25} />
                   </button>
@@ -82,7 +75,7 @@ export const Banner = () => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={4}>
+          <Col xs={12} md={6} xl={5}>
             <img src={headerImg} alt="Header Img" />
           </Col>
         </Row>
