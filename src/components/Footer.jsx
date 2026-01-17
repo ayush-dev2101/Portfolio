@@ -1,6 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import Brevo from "./BrevoForm";
-import logo from "../assets/img/logo.svg";
+// import { Contact } from "./Contact"; // <- new Contact section
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
@@ -13,20 +12,18 @@ export const Footer = () => {
     >
       <Container>
         <Row className="align-items-center">
-          {/* Newsletter Section */}
+          {/* Contact / Newsletter Section */}
           <Col xs={12} lg={6} className="mb-4 mb-lg-0">
-            <h5>Subscribe to my Newsletter</h5>
-            <p>Get updates on my projects and learning journey.</p>
-            <Brevo />
+            <h5>Get In Touch / Subscribe For Connection</h5>
           </Col>
 
           {/* Logo Section */}
           <Col
-            xs={12}
-            lg={3}
+            // xs={12}
+            // lg={3}
             className="mb-4 mb-lg-0 text-center text-lg-start"
           >
-            <img src={logo} alt="Logo" style={{ maxWidth: "150px" }} />
+            <span className="footer-logo">PORTFOLIO</span>
           </Col>
 
           {/* Social Icons Section */}
@@ -51,7 +48,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={navIcon3} alt="Twitter" />
+                <img src={navIcon3} alt="Instagram" />
               </a>
             </div>
             <p className="mb-0" style={{ fontSize: "14px" }}>

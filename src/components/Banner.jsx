@@ -57,10 +57,10 @@ export const Banner = () => {
                     <span className="wrap"> {text}</span>
                   </h1>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Officia, sed voluptates necessitatibus similique minus
-                    corporis aliquid impedit excepturi odio laboriosam ipsam
-                    Distinctio eaque numquam provident!
+                    I am a full-stack developer who builds scalable,
+                    high-performance web applications with a strong focus on
+                    clean architecture, user experience, and modern
+                    technologies.
                   </p>
                   <button
                     onClick={() =>

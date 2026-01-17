@@ -40,10 +40,11 @@ export const Skills = () => {
           <Col>
             <div className="skill-bx">
               <h2>Skills</h2>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis
-                ullam autem, consectetur consequatur tempore optio quia vitae
-                illo rem at.
+              <p className="justify-text">
+                I have hands-on experience in frontend and backend development,
+                building end-to-end web applications, while continuously
+                learning artificial intelligence to strengthen my
+                problem-solving skills.
               </p>
               <Carousel
                 responsive={responsive}

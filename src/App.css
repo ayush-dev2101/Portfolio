@@ -94,9 +94,14 @@ nav.navbar.scrolled {
   padding: 0px 0;
   background-color: #121212;
 }
-nav.navbar a.navbar-brand {
-    width: 9%;
+nav.navbar .navbar-brand {
+  font-weight: 900;
+  color: #fff !important;
+  font-size: 40px;
+  letter-spacing: 2px;
+  white-space: nowrap;
 }
+
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
   color: #fff !important;
@@ -457,6 +462,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 15px;
   letter-spacing: 0.8px;
 }
+.justify-text {
+  text-align: justify !important;
+  text-justify: inter-word;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
 .background-image-right {
   top: 20%;
   position: absolute;
@@ -615,4 +627,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+.footer-logo {
+  font-size: 2rem;      /*increase size */
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #ffffff;
 }

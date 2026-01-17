@@ -1,7 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import logo from "../assets/img/logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/linkedIn.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
@@ -33,7 +32,7 @@ export const NavBar = () => {
           onClick={() => handleNavClick("Home")}
           style={{ cursor: "pointer" }}
         >
-          <img src={logo} alt="logo" />
+          PORTFOLIO
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
