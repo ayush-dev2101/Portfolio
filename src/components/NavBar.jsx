@@ -10,27 +10,29 @@ export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
 
+  // Handle scroll to add navbar shadow/animation
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", onScroll);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
+  // Smooth scroll handler
+  const handleNavClick = (section) => {
+    setActiveLink(section);
+    const el = document.getElementById(section.toLowerCase());
+    el?.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand
+          onClick={() => handleNavClick("Home")}
+          style={{ cursor: "pointer" }}
+        >
           <img src={logo} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -38,33 +40,17 @@ export const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse>
           <Nav className="me-auto">
-            <Nav.Link
-              href="#Home"
-              className={
-                activeLink === "Home" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("Home")}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              href="#Skills"
-              className={
-                activeLink === "Skills" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("Skills")}
-            >
-              Skills
-            </Nav.Link>
-            <Nav.Link
-              href="#Projects"
-              className={
-                activeLink === "Projects" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("Projects")}
-            >
-              Projects
-            </Nav.Link>
+            {["Home", "Skills", "Projects"].map((link) => (
+              <Nav.Link
+                key={link}
+                className={
+                  activeLink === link ? "active navbar-link" : "navbar-link"
+                }
+                onClick={() => handleNavClick(link)}
+              >
+                {link}
+              </Nav.Link>
+            ))}
           </Nav>
           <span className="navbar-text">
             <div className="social-icon mb-2">
@@ -103,13 +89,7 @@ export const NavBar = () => {
               </a>
             </div>
 
-            <button
-              onClick={() => {
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
+            <button onClick={() => handleNavClick("Contact")}>
               Let's Connect <ArrowRightCircle size={25} />
             </button>
           </span>
