@@ -6,7 +6,7 @@ import headerImg from "../assets/img/header-img.svg";
 import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
-  const toRotate = useMemo(() => ["Full Stack Web Developer"], []);
+  const toRotate = useMemo(() => ["Software Developer"], []);
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
